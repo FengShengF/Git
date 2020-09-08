@@ -46,7 +46,11 @@
         git merge 分支名-----合并某分之到当前分之<br />
         git branch -d 分支名-----删除分之<br />
 
-        git checkout -- 文件名  --------丢弃对工作区的修改,回到最近一次git commit或git add时的状态
+        git stash -----将工作区的更改隐藏、可以切换到别的分支<br />
+        git stash pop ------恢复工作区的更改，并删除git stash list查询到的记录<br />
+        git stash list  ------查询工作区隐藏的更改<br />
+
+        git checkout -- 文件名  --------丢弃对工作区的修改,回到最近一次git commit或git add时的状态<br />
 
         git checkout -b 本地分支名 origin/远程分支名----- 将远程git仓库里的指定分支拉取到本地<br />
 
