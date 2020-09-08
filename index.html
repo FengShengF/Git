@@ -39,20 +39,24 @@
         git reset --hard HEAD^^-----回退到上上个版本<br />
         git reset --hard 版本的id-----回退或者回到未来某个版本(可以用git reglog查看版本的id)<br /><br />
 
-        git checkout -- 文件名  --------丢弃对工作区的修改,回到最近一次git commit或git add时的状态
-
-        git checkout -b 本地分支名 origin/远程分支名----- 将远程git仓库里的指定分支拉取到本地<br />
-        <!-- 本地没有分之，拉取远程分之。
-        1.git fetch origin 分之名
-        2.git checkout -b 分之名 origin/分之名 -->
-
-        git push origin HEAD --force #远程提交回退<br />
         git branch-----查看所有分支<br />
         git branch 分支名 、git switch 分支名-----创建分之<br />
         git checkout 分支名-----切换分之<br />
         git checkout -b 分支名 、git switch -c 分支名-----创建并且切换分支<br />
         git merge 分支名-----合并某分之到当前分之<br />
         git branch -d 分支名-----删除分之<br />
+
+        git checkout -- 文件名  --------丢弃对工作区的修改,回到最近一次git commit或git add时的状态
+
+        git checkout -b 本地分支名 origin/远程分支名----- 将远程git仓库里的指定分支拉取到本地<br />
+
+        git push origin HEAD --force #远程提交回退<br />
+
+        
+         <!-- 本地没有分之，拉取远程分之。
+        1.git fetch origin 分之名
+        2.git checkout -b 分之名 origin/分之名 -->
+        
 
         <h1>删除远程分之(远程分支存在的情况)</h1>
         <li>1.git push origin --delete 分支名 或者 git push origin :分支名</li>
