@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <h1>git 学习笔记</h1>
+    <p>Git是分布式版本控制系统</p>
+
+    <h3>Git跟svn的区别</h3>
+    <p>
+        Git是分布式，本地有镜像,无网络时也可以提交到本地镜像,待到有网络时再push到服务器
+        <br /> svn:非分布式.无网络不可以提交
+        <br />
+    </p>
+
+    <br /><br />
+    <h1>知识点</h1>
+    <p>
+        生成秘钥：ssh-keygen -t rsa -C "git的账号邮箱" 
+        
+        git diff -----比较工作区和暂存区的区别<br />
+        git diff --cached -----比较暂存区和版本库的区别<br />
+        git diff HEAD -- filename -----比较工作区和版本库的区别<br />
+        git status-----掌握工作区的状态<br /><br />
+
+        git log-----查看提交的历史记录(多行显示),以便确定要<span>回退</span>span>到哪个版本<br />
+        git log --pretty=oneline-----查看提交的历史记录(一行显示)<br /><br />
+        git reflog -----查看命令历史,以便确定要<span>回到未来</span>的哪个版本<br /><br />
+
+        git reset HEAD 文件名 -------丢弃对暂存区的修改<br /> <br />
+        git reset --hard HEAD^-----回退到上一个版本<br />
+        git reset --hard HEAD^^-----回退到上上个版本<br />
+        git reset --hard 版本的id-----回退或者回到未来某个版本(可以用git reglog查看版本的id)<br /><br />
+
+        git checkout -- 文件名  --------丢弃对工作区的修改,回到最近一次git commit或git add时的状态
+
+        git checkout -b 本地分支名 origin/远程分支名----- 将远程git仓库里的指定分支拉取到本地<br />
+        <!-- 本地没有分之，拉取远程分之。
+        1.git fetch origin 分之名
+        2.git checkout -b 分之名 origin/分之名 -->
+
+        git push origin HEAD --force #远程提交回退<br />
+        git branch-----查看所有分支<br />
+        git branch 分支名 、git switch 分支名-----创建分之<br />
+        git checkout 分支名-----切换分之<br />
+        git checkout -b 分支名 、git switch -c 分支名-----创建并且切换分支<br />
+        git merge 分支名-----合并某分之到当前分之<br />
+        git branch -d 分支名-----删除分之<br />
+
+        <h1>删除远程分之(远程分支存在的情况)</h1>
+        <li>1.git push origin --delete 分支名 或者 git push origin :分支名</li>
+        <h1>删除远程分之名(远程分支不存在的情况)</h1>
+        <li>git remote prune 分支名(不好使？) --- git remote prune origin</li>
+        
+        <h1>修改分之名称</h1>
+        <li>1.git branch -m 旧的分支名 新的分支名</li>
+
+        <h3>关联本地仓库和远端仓库的方法</h3>
+        <p>1.先有本地库，后有远程库的时候<br />
+            &nbsp;一.git init<br />
+            &nbsp;二.git add .<br />
+            &nbsp;三.git commit -m '想说的'<br />
+            &nbsp;四.git remote add origin git@github.com:名字/learngit.git(将本地库与远程库进行关联)<br />
+            &nbsp;五.git push -u origin master(-u 参数表示把本地的master分支和远程的master分支关联起来)<br />
+            <p>失败后，1.git pull --rebase origin master 2.git push origin master</p>
+        </p>
+        <!-- git init----初始化一个Git仓库<br />
+        git add '添加的文件'(把文件添加到暂存区)<br />
+        git commit -m '修改的说明'(把暂存区的所有内容提交到当前分支)<br /><br /> -->
+        <p>2.在本地克隆远端仓库<br />
+            一.git clone 秘钥。<br />
+        </p><br />
+
+    </p>
+
+    <br /><br />
+    <h1>常用命令</h1>
+    <p>
+        pwd----命令用于显示当前目录<br /><br />
+        :w! 强制保存，不推出vi <br />
+        :wq 保存文件并退出vi <br />
+        :wq! 强制保存文件，并退出vi <br />
+        q: 不保存文件，退出vi <br />
+        :q! 不保存文件，强制退出vi <br />
+        :e! 放弃所有修改，从上次保存文件开始再编辑<br /><br />
+    </p>
+</body>
+
+</html>
