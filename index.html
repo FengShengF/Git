@@ -24,6 +24,39 @@
     <h1>知识点</h1>
     <p>
         生成秘钥：ssh-keygen -t rsa -C "git的账号邮箱" 
+
+        <h3>关联本地仓库和远端仓库的方法</h3>
+        <p>1.先有本地库，后有远程库的时候<br />
+            &nbsp;一.git init ----初始化一个Git仓库<br />
+            &nbsp;二.git add . ----把文件添加到暂存区<br />
+            &nbsp;三.git commit -m '想说的' ----把暂存区的所有内容提交到当前分支<br />
+            &nbsp;四.git remote add origin 仓库地址(将本地库与远程库进行关联)<br />
+            &nbsp;五.git push -u origin master(-u 参数表示把本地的master分支和远程的master分支关联起来)<br />
+            <p>失败后，1.git pull --rebase origin master 2.git push origin master</p>
+        </p>
+        <p>2.在本地克隆远端仓库<br />
+            一.git clone 秘钥。<br />
+        </p><br />
+
+        <h3>远程仓库相关</h3></h3>
+        git remote -v -----查看远程仓库<br />
+        git remote add 名称 远程url  -----添加远程仓库<br />
+        git remote remove 名称（eg:origin） ------删除远程仓库<br />
+        git remote rename 名称1 名称2 ------远程仓库重命名<br /><br />
+
+        <h3>打标签</h3>
+        git tag -a 标签名 -m '标签信息' ------附注标签<br />
+        git tag 标签名 ------轻量标签<br />
+        git tag -a 标签名 校验和 ------后期打标签<br />
+        git push origin 标签名 ------向远程服务器共享标签<br />
+        git push origin --tags------向远程服务器共享所有标签<br />
+        git tag -d 标签名 ------删除本地标签<br />
+        git push origin --delete 标签名  ------删除远程标签<br />
+
+        <h3>分之合并</h3>
+        git merge 分之 ------三方合并，生成新的快照<br />
+        git rebase 分之 ------变基<br />
+
         
         git diff -----比较工作区和暂存区的区别<br />
         git diff --cached -----比较暂存区和版本库的区别<br />
@@ -72,21 +105,7 @@
         <h1>修改分之名称</h1>
         <li>1.git branch -m 旧的分支名 新的分支名</li>
 
-        <h3>关联本地仓库和远端仓库的方法</h3>
-        <p>1.先有本地库，后有远程库的时候<br />
-            &nbsp;一.git init<br />
-            &nbsp;二.git add .<br />
-            &nbsp;三.git commit -m '想说的'<br />
-            &nbsp;四.git remote add origin git@github.com:名字/learngit.git(将本地库与远程库进行关联)<br />
-            &nbsp;五.git push -u origin master(-u 参数表示把本地的master分支和远程的master分支关联起来)<br />
-            <p>失败后，1.git pull --rebase origin master 2.git push origin master</p>
-        </p>
-        <!-- git init----初始化一个Git仓库<br />
-        git add '添加的文件'(把文件添加到暂存区)<br />
-        git commit -m '修改的说明'(把暂存区的所有内容提交到当前分支)<br /><br /> -->
-        <p>2.在本地克隆远端仓库<br />
-            一.git clone 秘钥。<br />
-        </p><br />
+        
 
     </p>
 
